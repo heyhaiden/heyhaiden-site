@@ -28,12 +28,20 @@ export default function Home() {
             {/* Name + title */}
             <div className="mb-6">
               <h1 className="text-4xl font-bold mb-2">Haiden McGill</h1>
-              <h2 className="text-xl text-gray-600">AI Product Engineer · Builder PM</h2>
+              <h2 className="text-xl text-gray-500">Senior PM · AI Builder · Former Founder</h2>
+            </div>
+
+            {/* Current role badge */}
+            <div className="flex justify-center mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
+                Currently at Optimove · Enterprise AI
+              </span>
             </div>
 
             {/* Bio */}
-            <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              I build AI products from first principles — voice agents, agentic workflows, MCP tooling, and healthcare platforms. Former founder with 7+ years in B2B product. I moved from managing products to building them when I realized the gap between what&apos;s possible with AI and what actually gets shipped is mostly a builder problem.
+            <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">
+              7+ years in B2B product. I build AI products end-to-end — voice agents, agentic workflows, MCP tooling. MSc Computer Science (UCL, Distinction). Former founder.
             </p>
 
             {/* CTAs */}

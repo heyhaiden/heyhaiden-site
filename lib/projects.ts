@@ -27,6 +27,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/heyhaiden/synthia-dementia-voice-ai",
     demoUrl: "https://www.loom.com/share/b0935f9d8f7b40518a36d53fe47cc6b8",
     accentColor: "bg-violet-100 text-violet-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/synthia-dementia-voice-ai/main/public/lovable-uploads/synthia_hero_screenshot.png",
     overview:
       "Synthia is a real-time voice AI healthcare assistant purpose-built for dementia care support. The system chains OpenAI Whisper for speech recognition, GPT-4o for contextual understanding, and ElevenLabs for natural voice synthesis into a seamless conversation pipeline. Healthcare-specific prompt engineering ensures responses are empathetic, clear, and clinically appropriate — avoiding the ambiguity that can distress dementia patients.",
     challenge:
@@ -126,6 +127,7 @@ export const projects: Project[] = [
     category: "Developer Tools",
     githubUrl: "https://github.com/heyhaiden/mcp-ag-grid",
     accentColor: "bg-orange-100 text-orange-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/mcp-ag-grid/main/public/assets/mcp-ag-grid-min.png",
     overview:
       "An open-source Model Context Protocol (MCP) server that bridges Claude Desktop and AG Grid through headless browser automation. Users can create data grids, run natural-language queries, apply filters and sorts, generate statistical summaries, and export to CSV or Excel — all from within a Claude conversation. Supports multi-grid sessions and exposes grid state through MCP resources.",
     challenge:
@@ -151,6 +153,7 @@ export const projects: Project[] = [
     category: "Agentic / B2B",
     githubUrl: "https://github.com/heyhaiden/watch-guard-agent",
     accentColor: "bg-amber-100 text-amber-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/watch-guard-agent/main/public/images/demo-thumbnail.png",
     overview:
       "WatchGuard Advisor is a conversational AI that replaces vague insurance advice with a structured, data-driven recommendation. Through a 4–5 question conversational flow — watch value, financial picture, quoted premium, usage patterns — the advisor produces a clear verdict: insure, don't insure, or optional. Built on the Vercel AI SDK with xAI (Grok) via Vercel AI Gateway, Neon Postgres for conversation persistence, and Auth.js for user management.",
     challenge:
