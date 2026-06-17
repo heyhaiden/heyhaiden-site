@@ -23,8 +23,8 @@ const socialLinks = [
     label: "Devpost",
     href: "https://devpost.com/heyhaiden",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden>
-        <path d="M2.002 4.802v14.396h2.137V4.802H2.002zm4.896 0v14.396h2.137V4.802H6.898zm9.102 0 6 7.198-6 7.198V4.802zm0 2.745v9.708l3.816-4.854L16 7.547z" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="h-[22px] w-[22px]" aria-hidden>
+        <path d="M6.002 1.61 0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853z" />
       </svg>
     ),
   },

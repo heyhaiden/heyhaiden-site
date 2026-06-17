@@ -11,7 +11,7 @@ export default function ProjectsPage() {
   const filtered =
     activeTags.length === 0
       ? projects
-      : projects.filter((p) => activeTags.every((tag) => p.tags.includes(tag)));
+      : projects.filter((p) => activeTags.some((tag) => p.tags.includes(tag)));
 
   function toggleTag(tag: string) {
     setActiveTags((prev) =>

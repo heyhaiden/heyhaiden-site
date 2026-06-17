@@ -10,7 +10,7 @@ const featured = featuredSlugs.map((slug) => projects.find((p) => p.slug === slu
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <div className="min-h-[80svh] flex flex-col justify-center container max-w-6xl mx-auto px-4">
+      <div className="min-h-[calc(100svh-8rem)] flex flex-col justify-center container max-w-6xl mx-auto px-4">
         <p className="text-primary text-xs font-semibold uppercase tracking-widest mb-5">
           AI Product Engineer · Builder PM
         </p>
