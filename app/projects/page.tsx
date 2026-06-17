@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ProjectCard } from "@/components/project-card";
+import { PageHeader, PageShell } from "@/components/ui";
 import { projects, allTags } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
@@ -20,11 +21,11 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="container max-w-6xl mx-auto px-4 pt-20 pb-16">
-      <h1 className="text-4xl font-bold mb-4">Projects</h1>
-      <p className="text-muted-foreground mb-10">
-        A collection of AI products, agentic systems, and hardware builds.
-      </p>
+    <PageShell>
+      <PageHeader
+        title="Projects"
+        description="A collection of AI products, agentic systems, and hardware builds."
+      />
 
       <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter projects by tag">
         <button
@@ -79,6 +80,6 @@ export default function ProjectsPage() {
           ))}
         </div>
       )}
-    </div>
+    </PageShell>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Card, PageShell, Pill, SectionHeading } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "About — Haiden McGill",
@@ -95,7 +96,7 @@ const skills = [
 
 export default function AboutPage() {
   return (
-    <div className="container max-w-6xl mx-auto px-4 pt-20 pb-16 lg:pb-0">
+    <PageShell className="lg:pb-0">
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.45fr)] gap-x-12 gap-y-10 items-start lg:h-[calc(100svh-6rem)] lg:overflow-hidden">
         <div className="space-y-6 lg:pr-4">
           <div className="space-y-4">
@@ -126,37 +127,37 @@ export default function AboutPage() {
 
         <div className="space-y-12 min-w-0 lg:h-full lg:overflow-y-auto lg:pr-3 lg:pb-16">
           <section>
-            <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-5">
+            <SectionHeading className="mb-5">
               Experience
-            </h2>
+            </SectionHeading>
             <div className="space-y-3">
               {experience.map((item) => (
-                <div
+                <Card
                   key={item.role + item.org}
-                  className="rounded-xl border border-border bg-white p-4 shadow-sm"
+                  className="p-4"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-semibold text-gray-900 text-sm">{item.role}</span>
                       {item.badge && (
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                        <Pill variant="blue" className="rounded px-1.5 text-[10px]">
                           {item.badge}
-                        </span>
+                        </Pill>
                       )}
                     </div>
                     <span className="text-xs text-muted-foreground shrink-0">{item.period}</span>
                   </div>
                   <div className="text-xs font-medium text-primary mb-1.5">{item.org}</div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                </div>
+                </Card>
               ))}
             </div>
           </section>
 
           <section>
-            <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-5">
+            <SectionHeading className="mb-5">
               Education
-            </h2>
+            </SectionHeading>
             <div className="space-y-4">
               {education.map((item) => (
                 <div
@@ -167,9 +168,9 @@ export default function AboutPage() {
                     <div className="text-sm font-semibold text-gray-900">{item.degree}</div>
                     <div className="text-xs font-medium text-primary mt-0.5">{item.institution}</div>
                     {item.distinction && (
-                      <span className="inline-block mt-1.5 text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-50 text-blue-600">
+                      <Pill variant="blue" className="mt-1.5 rounded px-1.5 text-[10px]">
                         {item.distinction}
-                      </span>
+                      </Pill>
                     )}
                     {item.note && (
                       <div className="text-xs text-muted-foreground mt-0.5">{item.note}</div>
@@ -183,9 +184,9 @@ export default function AboutPage() {
 
           {teaching.length > 0 && (
             <section>
-              <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-5">
+              <SectionHeading className="mb-5">
                 Teaching
-              </h2>
+              </SectionHeading>
               <div className="space-y-4">
                 {teaching.map((item) => (
                   <div
@@ -207,23 +208,20 @@ export default function AboutPage() {
           )}
 
           <section>
-            <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-5">
+            <SectionHeading className="mb-5">
               Skills &amp; Stack
-            </h2>
+            </SectionHeading>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {skills.map((group) => (
                 <div key={group.label}>
-                  <h3 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mb-2">
+                  <SectionHeading as="h3" className="text-[10px] mb-2">
                     {group.label}
-                  </h3>
+                  </SectionHeading>
                   <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item) => (
-                      <span
-                        key={item}
-                        className="px-2 py-0.5 bg-secondary text-muted-foreground rounded text-xs font-medium"
-                      >
+                      <Pill key={item} className="rounded px-2">
                         {item}
-                      </span>
+                      </Pill>
                     ))}
                   </div>
                 </div>
@@ -232,6 +230,6 @@ export default function AboutPage() {
           </section>
         </div>
       </div>
-    </div>
+    </PageShell>
   );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, GitBranch } from "lucide-react";
 import { ProjectTitleCardImage } from "@/components/project-title-card-image";
+import { PageShell, Pill, SectionHeading, buttonClass } from "@/components/ui";
 import { projects, getProject } from "@/lib/projects";
 
 export async function generateStaticParams() {
@@ -33,7 +34,7 @@ export default async function ProjectPage({
 
   return (
     <div>
-      <div className="container max-w-6xl mx-auto px-4 pt-20 pb-6">
+      <PageShell className="pb-6">
         <Link
           href="/projects"
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-gray-900 transition-colors"
@@ -41,9 +42,9 @@ export default async function ProjectPage({
           <ArrowLeft aria-hidden className="h-3.5 w-3.5" />
           All projects
         </Link>
-      </div>
+      </PageShell>
 
-      <div className="container max-w-3xl mx-auto px-4 pb-16">
+      <PageShell size="readable" className="pt-0">
         {project.titleCard && (
           <ProjectTitleCardImage
             project={project}
@@ -56,12 +57,12 @@ export default async function ProjectPage({
         <div className="mb-10">
           <div className="flex flex-wrap gap-1.5 mb-4">
             {project.tags.map((tag) => (
-              <span
+              <Pill
                 key={tag}
-                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${project.accentColor}`}
+                className={project.accentColor}
               >
                 {tag}
-              </span>
+              </Pill>
             ))}
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-4 leading-tight">
@@ -79,7 +80,7 @@ export default async function ProjectPage({
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+                className={buttonClass()}
               >
                 <ExternalLink aria-hidden className="h-3.5 w-3.5" />
                 View live
@@ -90,7 +91,7 @@ export default async function ProjectPage({
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-border text-gray-700 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors"
+                className={buttonClass("secondary")}
               >
                 <ExternalLink aria-hidden className="h-3.5 w-3.5" />
                 Watch demo
@@ -101,7 +102,7 @@ export default async function ProjectPage({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-border text-gray-700 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors"
+                className={buttonClass("secondary")}
               >
                 <GitBranch aria-hidden className="h-3.5 w-3.5" />
                 GitHub
@@ -111,23 +112,23 @@ export default async function ProjectPage({
         )}
 
         <section className="mb-10">
-          <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">
+          <SectionHeading className="mb-4">
             Overview
-          </h2>
+          </SectionHeading>
           <p className="text-gray-700 leading-relaxed">{project.overview}</p>
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">
+          <SectionHeading className="mb-4">
             Challenge
-          </h2>
+          </SectionHeading>
           <p className="text-gray-700 leading-relaxed">{project.challenge}</p>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">
+          <SectionHeading className="mb-4">
             Outcomes
-          </h2>
+          </SectionHeading>
           <ul className="space-y-2">
             {project.outcomes.map((outcome, i) => (
               <li key={i} className="flex gap-3 text-gray-700">
@@ -142,9 +143,9 @@ export default async function ProjectPage({
 
         {project.references.length > 0 && (
           <section className="pt-10 border-t border-border">
-            <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">
+            <SectionHeading className="mb-4">
               Links
-            </h2>
+            </SectionHeading>
             <div className="flex flex-wrap gap-3">
               {project.references.map((ref) => (
                 <a
@@ -161,7 +162,7 @@ export default async function ProjectPage({
             </div>
           </section>
         )}
-      </div>
+      </PageShell>
     </div>
   );
 }

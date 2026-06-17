@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProjectCard } from "@/components/project-card";
 import { SocialIconButtons } from "@/components/social-icon-buttons";
+import { ButtonLink, SectionHeading } from "@/components/ui";
 import { projects } from "@/lib/projects";
 
 const featuredSlugs = ["embodied-labs", "ai-claims-agent", "mcp-ag-grid"];
@@ -31,21 +32,21 @@ export default function Home() {
         </p>
 
         <div className="flex items-center gap-3 flex-wrap">
-          <Link
+          <ButtonLink
             href="/projects"
-            className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+            className="px-7 py-3"
           >
             View projects <ArrowRight aria-hidden className="h-4 w-4" />
-          </Link>
+          </ButtonLink>
           <SocialIconButtons />
         </div>
       </div>
 
       <div className="container max-w-6xl mx-auto px-4 pb-20">
         <div className="flex items-end justify-between mb-6">
-          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">
+          <SectionHeading className="text-sm">
             Featured Work
-          </h2>
+          </SectionHeading>
           <Link
             href="/projects"
             className="text-primary text-sm flex items-center gap-1 hover:underline"
