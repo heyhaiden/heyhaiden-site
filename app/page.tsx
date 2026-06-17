@@ -1,65 +1,104 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { projects } from "@/lib/projects";
+
+const featured = projects.slice(0, 3);
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="container max-w-4xl mx-auto px-4 py-16">
+      {/* Hero */}
+      <section className="mb-20">
+        <p className="text-sm font-medium text-[hsl(var(--primary))] mb-4 tracking-wide uppercase">
+          AI Product Engineer · Builder PM
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.15]">
+          Haiden McGill
+        </h1>
+        <p className="text-xl text-gray-600 mb-4 max-w-2xl leading-relaxed">
+          I build AI products from first principles — voice agents, agentic
+          workflows, MCP tooling, and healthcare platforms.
+        </p>
+        <p className="text-gray-500 max-w-2xl leading-relaxed mb-8">
+          Former founder. 7+ years in B2B product. I moved from managing
+          products to building them when I realized the gap between what&apos;s
+          possible with AI and what actually gets shipped is mostly a builder
+          problem.
+        </p>
+        <div className="flex gap-4">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 bg-[hsl(var(--primary))] text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            View projects
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 border border-[hsl(var(--border))] text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
           >
-            Documentation
-          </a>
+            About me
+          </Link>
         </div>
-      </main>
+      </section>
+
+      {/* Divider */}
+      <div className="border-t border-[hsl(var(--border))] mb-12" />
+
+      {/* Featured work */}
+      <section>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-lg font-semibold text-gray-900">Featured work</h2>
+          <Link
+            href="/projects"
+            className="text-sm text-[hsl(var(--primary))] hover:underline flex items-center gap-1"
+          >
+            All projects
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {featured.map((project) => (
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              className="group rounded-lg border border-[hsl(var(--border))] bg-white hover:-translate-y-1 transition-transform duration-200 overflow-hidden"
+            >
+              {/* Color header */}
+              <div className={`h-2 ${project.accentColor.split(" ")[0]}`} />
+              <div className="p-5">
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {project.tags.slice(0, 2).map((tag) => (
+                    <span
+                      key={tag}
+                      className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${project.accentColor}`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2 group-hover:text-[hsl(var(--primary))] transition-colors leading-snug">
+                  {project.title}
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed line-clamp-3">
+                  {project.shortDescription}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Stack */}
+      <section className="mt-16 pt-12 border-t border-[hsl(var(--border))]">
+        <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+          Stack
+        </h2>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          Next.js · TypeScript · Claude API · VAPI · Vercel AI SDK · MCP ·
+          OpenAI Whisper · ElevenLabs · ESP32 · Python
+        </p>
+      </section>
     </div>
   );
 }
