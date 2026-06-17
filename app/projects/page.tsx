@@ -1,108 +1,84 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ProjectCard } from "@/components/project-card";
 import { projects, allTags } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
 export default function ProjectsPage() {
-  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeTags, setActiveTags] = useState<string[]>([]);
 
-  const filtered = activeTag
-    ? projects.filter((p) => p.tags.includes(activeTag))
-    : projects;
+  const filtered =
+    activeTags.length === 0
+      ? projects
+      : projects.filter((p) => activeTags.every((tag) => p.tags.includes(tag)));
+
+  function toggleTag(tag: string) {
+    setActiveTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  }
 
   return (
-    <div className="container max-w-6xl mx-auto px-4 py-16">
+    <div className="container max-w-6xl mx-auto px-4 pt-20 pb-16">
       <h1 className="text-4xl font-bold mb-4">Projects</h1>
-      <p className="text-gray-600 mb-10">
+      <p className="text-muted-foreground mb-10">
         A collection of AI products, agentic systems, and hardware builds.
       </p>
 
-      {/* Tag filter */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter projects by tag">
         <button
-          onClick={() => setActiveTag(null)}
+          type="button"
+          onClick={() => setActiveTags([])}
+          aria-pressed={activeTags.length === 0}
           className={cn(
             "px-3 py-1 rounded-full text-xs font-medium border transition-colors cursor-pointer",
-            activeTag === null
+            activeTags.length === 0
               ? "bg-primary text-white border-primary"
-              : "border-[hsl(var(--border))] text-gray-600 hover:border-gray-400"
+              : "border-border text-gray-600 hover:border-gray-400"
           )}
         >
           All
         </button>
-        {allTags.map((tag) => (
+        {allTags.map((tag) => {
+          const selected = activeTags.includes(tag);
+          return (
+            <button
+              key={tag}
+              type="button"
+              onClick={() => toggleTag(tag)}
+              aria-pressed={selected}
+              className={cn(
+                "px-3 py-1 rounded-full text-xs font-medium border transition-colors cursor-pointer",
+                selected
+                  ? "bg-primary text-white border-primary"
+                  : "border-border text-gray-600 hover:border-gray-400"
+              )}
+            >
+              {tag}
+            </button>
+          );
+        })}
+      </div>
+
+      {filtered.length === 0 ? (
+        <p className="text-muted-foreground text-sm">
+          No projects match the selected tags.{" "}
           <button
-            key={tag}
-            onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-            className={cn(
-              "px-3 py-1 rounded-full text-xs font-medium border transition-colors cursor-pointer",
-              activeTag === tag
-                ? "bg-primary text-white border-primary"
-                : "border-[hsl(var(--border))] text-gray-600 hover:border-gray-400"
-            )}
+            type="button"
+            onClick={() => setActiveTags([])}
+            className="text-primary hover:underline"
           >
-            {tag}
+            Clear filters
           </button>
-        ))}
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((project) => (
-          <Link
-            key={project.slug}
-            href={`/projects/${project.slug}`}
-            className="group rounded-lg overflow-hidden border bg-white hover:-translate-y-1 transition-transform duration-200"
-          >
-            {/* Hero image or accent fallback */}
-            {project.titleCard ? (
-              <div className="relative h-48">
-                <Image
-                  src={project.titleCard}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ) : (
-              <div
-                className={`h-48 flex items-center justify-center ${project.accentColor.split(" ")[0]}`}
-              >
-                <span className="text-xs font-medium uppercase tracking-wider opacity-40">
-                  {project.category}
-                </span>
-              </div>
-            )}
-
-            {/* Card content */}
-            <div className="p-4">
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-gray-600 mb-4 line-clamp-2">
-                {project.shortDescription}
-              </p>
-              <div className="flex items-center justify-between">
-                <div className="flex gap-2">
-                  {project.tags.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-primary transition-colors" />
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

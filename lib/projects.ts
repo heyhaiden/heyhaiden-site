@@ -17,12 +17,63 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  // ── Row 1: Platform × DevTools × Voice AI ──────────────────────────────
+  {
+    id: 7,
+    slug: "embodied-labs",
+    title: "Embodied Labs: HealthTech Training Platform",
+    shortDescription: "B2B web platform for immersive healthcare professional training. Led product from 0→1 through scale.",
+    tags: ["Healthcare", "B2B", "Platform"],
+    category: "Product",
+    url: "https://www.embodiedlabs.com",
+    accentColor: "bg-teal-100 text-teal-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/embodied-labs-blur.jpg-lhWODtqb8dQJxSatWFOsqp5CAiSf8n.jpeg",
+    overview:
+      "Embodied Labs is a B2B SaaS platform providing immersive training experiences for healthcare professionals — improving clinical empathy and skills by putting learners inside the perspective of patients experiencing aging, vision loss, and cognitive decline. As a core product contributor, I led the development of key training modules and platform features that expanded the catalog and drove adoption across hospital systems and care networks.",
+    challenge:
+      "Healthcare training often fails to build empathy because learners study conditions abstractly. The challenge was building a platform that could deliver experiential, scenario-based learning at scale — accessible via standard web browsers without requiring specialized VR hardware in every facility.",
+    outcomes: [
+      "Platform adopted by major healthcare organizations for clinical staff training",
+      "Expanded training catalog across aging, vision loss, and dementia modules",
+      "Web-first delivery enabling broad adoption without hardware dependencies",
+      "Measurable improvement in empathy and clinical skill outcomes across customer cohorts",
+    ],
+    references: [
+      { title: "Embodied Labs Website", url: "https://www.embodiedlabs.com" },
+    ],
+  },
+  {
+    id: 5,
+    slug: "mcp-ag-grid",
+    title: "AG Grid MCP Server",
+    shortDescription: "MCP server giving Claude Desktop headless access to AG Grid — sort, filter, analyze, and export enterprise data tables via natural language.",
+    tags: ["MCP", "Developer Tools", "AI Infrastructure"],
+    category: "Developer Tools",
+    githubUrl: "https://github.com/heyhaiden/mcp-ag-grid",
+    accentColor: "bg-orange-100 text-orange-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/mcp-ag-grid/main/public/assets/mcp-ag-grid-min.png",
+    overview:
+      "Built in early 2025 before official support, when the MCP protocol was brand new, this open-source server acts as a bridge between Claude Desktop and AG Grid using headless browser automation. It lets users create and manipulate data grids, run natural language queries, filter and sort data, generate summaries, and export tables—all directly from a Claude conversation. The project pioneered persistent, multi-grid sessions and exposed grid state as native MCP resources.",
+    challenge:
+      "At the time, enterprise AI data tools either required bespoke solutions for each dataset or had to dump large tables into the context window. The main challenge was implementing a persistent, queryable data layer that Claude could interact with incrementally—sidestepping context limits—while building on the newly released, sparsely documented MCP protocol.",
+    outcomes: [
+      "Full AG Grid lifecycle: create, update, filter, sort, and export via MCP tools",
+      "Headless Puppeteer rendering for reliable grid state management",
+      "Multi-grid session support for parallel dataset operations",
+      "MCP resource exposure for grid data and metadata",
+      "Realistic sample datasets (sales, employee, financial) for testing",
+      "Published as installable npm package",
+    ],
+    references: [
+      { title: "GitHub Repository", url: "https://github.com/heyhaiden/mcp-ag-grid" },
+    ],
+  },
   {
     id: 1,
     slug: "synthia-voice-ai",
     title: "Synthia: Voice AI for Dementia Care",
-    shortDescription: "Real-time voice AI assistant for dementia patients. Whisper STT, ElevenLabs TTS, GPT-4 context engine.",
-    tags: ["AI/Voice", "Healthcare", "Regulated"],
+    shortDescription: "Real-time voice AI assistant for memory care. Whisper STT, ElevenLabs TTS, GPT-4 context engine.",
+    tags: ["AI/Voice", "Healthcare"],
     category: "AI / Voice",
     githubUrl: "https://github.com/heyhaiden/synthia-dementia-voice-ai",
     demoUrl: "https://www.loom.com/share/b0935f9d8f7b40518a36d53fe47cc6b8",
@@ -44,54 +95,56 @@ export const projects: Project[] = [
       { title: "Demo Video (Loom)", url: "https://www.loom.com/share/b0935f9d8f7b40518a36d53fe47cc6b8" },
     ],
   },
-  {
-    id: 2,
-    slug: "decision-studio",
-    title: "Decision Studio: AI Claims Pipeline Manager",
-    shortDescription: "Consulting prototype for Sprout.ai. No-code UI for configuring and validating AI decision pipelines in insurance claims.",
-    tags: ["Agentic", "InsurTech", "B2B", "Consulting"],
-    category: "Agentic / B2B",
-    url: "https://v0-decision-studio-app.vercel.app",
-    accentColor: "bg-emerald-100 text-emerald-800",
-    overview:
-      "Decision Studio is an enterprise-grade interface for configuring, testing, and deploying AI decision pipelines in insurance claims workflows — built as a consulting engagement for Sprout.ai, a leading claims automation platform. The tool gives non-technical claims teams control over AI logic without engineering involvement: define pipeline rules, run test suites against historical claims, monitor accuracy, and push to production with an audit trail.",
-    challenge:
-      "Insurance carriers need AI-assisted claims decisions but can't hand configuration to engineers every time a policy rule changes. The challenge was designing a UI that abstracts agentic pipeline complexity into a workflow non-engineers can own — while surfacing the accuracy metrics underwriters actually care about.",
-    outcomes: [
-      "Pipeline manager supporting 6 live claim types across multiple carriers",
-      "93.1% average accuracy across live production pipelines",
-      "4,981 claims processed through the system",
-      "Test suite runner for validating pipeline changes before production push",
-      "Audit log with full lineage of pipeline modifications",
-      "Role-based access for adjusters, team leads, and system admins",
-    ],
-    references: [
-      { title: "Live Demo", url: "https://v0-decision-studio-app.vercel.app" },
-    ],
-  },
+  // ── Row 2: Agentic/Visual × Creator Economy × Voice Hackathon ──────────
   {
     id: 3,
     slug: "ai-claims-agent",
-    title: "AI Claims Agent Prototype",
-    shortDescription: "Agentic AI system for automated insurance claims assessment. LLM-orchestrated document review and coverage determination.",
+    title: "ClaimsIQ: Car Insurance AI Agent",
+    titleCard: "/titlecard-claims-agent.png",
+    shortDescription: "Car insurance claims agent using Claude Vision to classify vehicle damage from photos. Agentic pipeline from photo upload to structured coverage assessment.",
     tags: ["Agentic", "InsurTech", "AI/ML"],
     category: "Agentic / B2B",
     url: "https://v0-ai-claims-agent-prototype.vercel.app",
     githubUrl: "https://github.com/heyhaiden/v0-ai-claims-agent",
     accentColor: "bg-blue-100 text-blue-800",
     overview:
-      "An agentic prototype demonstrating end-to-end AI-assisted insurance claims processing. The agent ingests claim documents, extracts relevant policy and loss data, applies coverage rules, and produces a structured assessment with confidence scores — approximating the judgment workflow of a human claims adjuster. Built as a research prototype to explore where LLM reasoning holds up in structured, regulated decision-making.",
+      "An agentic prototype for automated car insurance claims processing. Claimants upload vehicle damage photos which Claude Vision classifies — detecting damage type, severity, and affected components — then an LLM-orchestrated pipeline applies coverage rules and produces a structured assessment with confidence scores. Built to explore where multimodal AI holds up in regulated claims workflows, and where confidence thresholds break down.",
     challenge:
-      "Insurance claims assessment requires multi-step reasoning over unstructured documents, policy language, and regulatory constraints. The challenge was evaluating where LLMs can reliably substitute for human judgment — and where the confidence thresholds break down — without putting a production system at risk.",
+      "Car insurance damage assessment requires combining visual reasoning over photos with policy language and regulatory constraints — a genuinely multimodal problem. The challenge was evaluating where Claude Vision reliably substitutes for adjuster judgment, and surfacing the cases where it diverges, without building on a live production system.",
     outcomes: [
-      "Document ingestion and entity extraction from unstructured claim filings",
-      "Coverage determination with structured confidence scoring",
-      "Agentic reasoning chain with interpretable step-by-step audit trail",
-      "Prototype surfacing edge cases where LLM confidence diverges from expected outcomes",
+      "Claude Vision damage classification from claimant-uploaded photos — type, severity, affected components",
+      "Agentic pipeline: photo intake → damage classification → coverage determination → structured report",
+      "Confidence scoring at each step with interpretable audit trail",
+      "Pre-loaded demo claims with full AI assessments for rapid prototype evaluation",
+      "In-memory store with production-ready interface for straightforward persistence swap",
     ],
     references: [
       { title: "Live Prototype", url: "https://v0-ai-claims-agent-prototype.vercel.app" },
       { title: "GitHub Repository", url: "https://github.com/heyhaiden/v0-ai-claims-agent" },
+    ],
+  },
+  {
+    id: 8,
+    slug: "koji-creator-platform",
+    title: "Koji: Creator Economy Platform",
+    shortDescription: "No-code mini-app platform for content creators. Acquired by Linktree in December 2023.",
+    tags: ["Creator Economy", "B2C", "SaaS"],
+    category: "Product",
+    url: "https://linktr.ee/blog/linktree-acquires-link-in-bio-platform-koji",
+    accentColor: "bg-pink-100 text-pink-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Article-1500x1000-QMlbwGueF0y5as8funXfNuu6QU2Zld.png",
+    overview:
+      "Koji was a creator economy platform enabling content creators to build and deploy interactive mini-apps — games, tip jars, storefronts, personalized shoutouts — directly within their link-in-bio profiles. As a product team member, I worked across the mini-app template ecosystem and monetization features that drove creator revenue. Koji was acquired by Linktree in December 2023, underscoring its significance in the creator tooling space.",
+    challenge:
+      "Creators need monetization tools that work inside the platforms where their audiences already live — not external checkout flows. The challenge was building a no-code app system flexible enough for diverse creator types while keeping the creation experience approachable for non-technical users.",
+    outcomes: [
+      "Built and shipped mini-app templates across e-commerce, gaming, and fan engagement verticals",
+      "Drove creator monetization through interactive, platform-native experiences",
+      "Supported a creator ecosystem spanning hundreds of thousands of users",
+      "Platform acquired by Linktree in December 2023",
+    ],
+    references: [
+      { title: "Linktree: Acquires Koji", url: "https://linktr.ee/blog/linktree-acquires-link-in-bio-platform-koji" },
     ],
   },
   {
@@ -118,104 +171,30 @@ export const projects: Project[] = [
       { title: "Live App", url: "https://ghosted-ai.vercel.app" },
     ],
   },
+  // ── Row 3: InsurTech B2B × IoT Climate × Conversational AI ─────────────
   {
-    id: 5,
-    slug: "mcp-ag-grid",
-    title: "MCP AG Grid Server",
-    shortDescription: "MCP server giving Claude Desktop headless access to AG Grid — sort, filter, analyze, and export enterprise data tables via natural language.",
-    tags: ["MCP", "Developer Tools", "AI Infrastructure"],
-    category: "Developer Tools",
-    githubUrl: "https://github.com/heyhaiden/mcp-ag-grid",
-    accentColor: "bg-orange-100 text-orange-800",
-    titleCard: "https://raw.githubusercontent.com/heyhaiden/mcp-ag-grid/main/public/assets/mcp-ag-grid-min.png",
-    overview:
-      "An open-source Model Context Protocol (MCP) server that bridges Claude Desktop and AG Grid through headless browser automation. Users can create data grids, run natural-language queries, apply filters and sorts, generate statistical summaries, and export to CSV or Excel — all from within a Claude conversation. Supports multi-grid sessions and exposes grid state through MCP resources.",
-    challenge:
-      "Enterprise data analysis in AI workflows typically requires either a custom tool per dataset or context-window-heavy data dumping. The challenge was building a persistent, stateful data layer Claude could query incrementally — keeping heavy tabular data out of the context window while still making it fully addressable.",
-    outcomes: [
-      "Full AG Grid lifecycle: create, update, filter, sort, and export via MCP tools",
-      "Headless Puppeteer rendering for reliable grid state management",
-      "Multi-grid session support for parallel dataset operations",
-      "MCP resource exposure for grid data and metadata",
-      "Realistic sample datasets (sales, employee, financial) for testing",
-      "Published as installable npm package",
-    ],
-    references: [
-      { title: "GitHub Repository", url: "https://github.com/heyhaiden/mcp-ag-grid" },
-    ],
-  },
-  {
-    id: 6,
-    slug: "watchguard-advisor",
-    title: "WatchGuard Advisor",
-    shortDescription: "Conversational AI helping luxury watch collectors decide whether insurance makes financial sense. AI SDK + Vercel AI Gateway + Neon.",
-    tags: ["Agentic", "InsurTech", "AI/ML"],
+    id: 2,
+    slug: "decision-studio",
+    title: "Decision Studio: AI Claims Pipeline Manager",
+    shortDescription: "Consulting prototype for Sprout.ai. No-code UI for configuring and validating AI decision pipelines in insurance claims.",
+    tags: ["Agentic", "InsurTech", "B2B", "Consulting"],
     category: "Agentic / B2B",
-    githubUrl: "https://github.com/heyhaiden/watch-guard-agent",
-    accentColor: "bg-amber-100 text-amber-800",
-    titleCard: "https://raw.githubusercontent.com/heyhaiden/watch-guard-agent/main/public/images/demo-thumbnail.png",
+    url: "https://v0-decision-studio-app.vercel.app",
+    accentColor: "bg-emerald-100 text-emerald-800",
     overview:
-      "WatchGuard Advisor is a conversational AI that replaces vague insurance advice with a structured, data-driven recommendation. Through a 4–5 question conversational flow — watch value, financial picture, quoted premium, usage patterns — the advisor produces a clear verdict: insure, don't insure, or optional. Built on the Vercel AI SDK with xAI (Grok) via Vercel AI Gateway, Neon Postgres for conversation persistence, and Auth.js for user management.",
+      "Decision Studio is an enterprise-grade interface for configuring, testing, and deploying AI decision pipelines in insurance claims workflows — built as a consulting engagement for Sprout.ai, a leading claims automation platform. The tool gives non-technical claims teams control over AI logic without engineering involvement: define pipeline rules, run test suites against historical claims, monitor accuracy, and push to production with an audit trail.",
     challenge:
-      "Watch insurance decisions require balancing premium cost, replacement risk, and opportunity cost in a way that most collectors don't have the financial modeling background for. The challenge was making the math feel conversational — building an advisor that feels like a knowledgeable friend rather than a spreadsheet.",
+      "Insurance carriers need AI-assisted claims decisions but can't hand configuration to engineers every time a policy rule changes. The challenge was designing a UI that abstracts agentic pipeline complexity into a workflow non-engineers can own — while surfacing the accuracy metrics underwriters actually care about.",
     outcomes: [
-      "Conversational AI collecting structured data through natural dialogue",
-      "Decision logic across three outcomes: insure / don't insure / optional",
-      "Two conversation modes: MVP (efficient) and Refined (warmer, exploratory)",
-      "AI Gateway integration enabling model switching between xAI Grok and OpenAI",
-      "Full chat history persistence in Neon Postgres",
-      "Guest access and authenticated flows via Auth.js",
+      "Pipeline manager supporting 6 live claim types across multiple carriers",
+      "93.1% average accuracy across live production pipelines",
+      "4,981 claims processed through the system",
+      "Test suite runner for validating pipeline changes before production push",
+      "Audit log with full lineage of pipeline modifications",
+      "Role-based access for adjusters, team leads, and system admins",
     ],
     references: [
-      { title: "GitHub Repository", url: "https://github.com/heyhaiden/watch-guard-agent" },
-    ],
-  },
-  {
-    id: 7,
-    slug: "embodied-labs",
-    title: "Embodied Labs: HealthTech Training Platform",
-    shortDescription: "B2B web platform for immersive healthcare professional training. Led product from 0→1 through scale.",
-    tags: ["Healthcare", "B2B", "Platform"],
-    category: "Product",
-    url: "https://www.embodiedlabs.com",
-    accentColor: "bg-teal-100 text-teal-800",
-    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/embodied-labs-blur.jpg-lhWODtqb8dQJxSatWFOsqp5CAiSf8n.jpeg",
-    overview:
-      "Embodied Labs is a B2B SaaS platform providing immersive training experiences for healthcare professionals — improving clinical empathy and skills by putting learners inside the perspective of patients experiencing aging, vision loss, and cognitive decline. As a core product contributor, I led the development of key training modules and platform features that expanded the catalog and drove adoption across hospital systems and care networks.",
-    challenge:
-      "Healthcare training often fails to build empathy because learners study conditions abstractly. The challenge was building a platform that could deliver experiential, scenario-based learning at scale — accessible via standard web browsers without requiring specialized VR hardware in every facility.",
-    outcomes: [
-      "Platform adopted by major healthcare organizations for clinical staff training",
-      "Expanded training catalog across aging, vision loss, and dementia modules",
-      "Web-first delivery enabling broad adoption without hardware dependencies",
-      "Measurable improvement in empathy and clinical skill outcomes across customer cohorts",
-    ],
-    references: [
-      { title: "Embodied Labs Website", url: "https://www.embodiedlabs.com" },
-    ],
-  },
-  {
-    id: 8,
-    slug: "koji-creator-platform",
-    title: "Koji: Creator Economy Platform",
-    shortDescription: "No-code mini-app platform for content creators. Acquired by Linktree in December 2023.",
-    tags: ["Creator Economy", "B2C", "SaaS"],
-    category: "Product",
-    url: "https://techcrunch.com/2023/12/14/linktree-acquires-koji-in-its-second-investment-of-the-year/",
-    accentColor: "bg-pink-100 text-pink-800",
-    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Article-1500x1000-QMlbwGueF0y5as8funXfNuu6QU2Zld.png",
-    overview:
-      "Koji was a creator economy platform enabling content creators to build and deploy interactive mini-apps — games, tip jars, storefronts, personalized shoutouts — directly within their link-in-bio profiles. As a product team member, I worked across the mini-app template ecosystem and monetization features that drove creator revenue. Koji was acquired by Linktree in December 2023, underscoring its significance in the creator tooling space.",
-    challenge:
-      "Creators need monetization tools that work inside the platforms where their audiences already live — not external checkout flows. The challenge was building a no-code app system flexible enough for diverse creator types while keeping the creation experience approachable for non-technical users.",
-    outcomes: [
-      "Built and shipped mini-app templates across e-commerce, gaming, and fan engagement verticals",
-      "Drove creator monetization through interactive, platform-native experiences",
-      "Supported a creator ecosystem spanning hundreds of thousands of users",
-      "Platform acquired by Linktree in December 2023",
-    ],
-    references: [
-      { title: "TechCrunch: Linktree Acquires Koji", url: "https://techcrunch.com/2023/12/14/linktree-acquires-koji-in-its-second-investment-of-the-year/" },
+      { title: "Live Demo", url: "https://v0-decision-studio-app.vercel.app" },
     ],
   },
   {
@@ -242,6 +221,35 @@ export const projects: Project[] = [
       { title: "GitHub Repository", url: "https://github.com/heyhaiden/firewall-scout-iot-system" },
     ],
   },
+  {
+    id: 6,
+    slug: "watchguard-advisor",
+    title: "WatchGuard Advisor",
+    shortDescription: "Conversational AI helping luxury watch collectors decide whether insurance makes financial sense. AI SDK + Vercel AI Gateway + Neon.",
+    tags: ["Agentic", "InsurTech", "AI/ML"],
+    category: "Agentic / B2B",
+    url: "https://nextjs-ai-chatbot-phi-fawn-50.vercel.app/",
+    githubUrl: "https://github.com/heyhaiden/watch-guard-agent",
+    accentColor: "bg-amber-100 text-amber-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/watch-guard-agent/main/public/images/demo-thumbnail.png",
+    overview:
+      "WatchGuard Advisor is a conversational AI that replaces vague insurance advice with a structured, data-driven recommendation. Through a 4–5 question conversational flow — watch value, financial picture, quoted premium, usage patterns — the advisor produces a clear verdict: insure, don't insure, or optional. Built on the Vercel AI SDK with xAI (Grok) via Vercel AI Gateway, Neon Postgres for conversation persistence, and Auth.js for user management.",
+    challenge:
+      "Watch insurance decisions require balancing premium cost, replacement risk, and opportunity cost in a way that most collectors don't have the financial modeling background for. The challenge was making the math feel conversational — building an advisor that feels like a knowledgeable friend rather than a spreadsheet.",
+    outcomes: [
+      "Conversational AI collecting structured data through natural dialogue",
+      "Decision logic across three outcomes: insure / don't insure / optional",
+      "Two conversation modes: MVP (efficient) and Refined (warmer, exploratory)",
+      "AI Gateway integration enabling model switching between xAI Grok and OpenAI",
+      "Full chat history persistence in Neon Postgres",
+      "Guest access and authenticated flows via Auth.js",
+    ],
+    references: [
+      { title: "Live Demo", url: "https://nextjs-ai-chatbot-phi-fawn-50.vercel.app/" },
+      { title: "GitHub Repository", url: "https://github.com/heyhaiden/watch-guard-agent" },
+    ],
+  },
+  // ── Row 4: Creative IoT ─────────────────────────────────────────────────
   {
     id: 10,
     slug: "dreamfreq",
