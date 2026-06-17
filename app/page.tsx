@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProjectCard } from "@/components/project-card";
+import { SocialIconButtons } from "@/components/social-icon-buttons";
 import { projects } from "@/lib/projects";
 
 const featuredSlugs = ["embodied-labs", "ai-claims-agent", "mcp-ag-grid"];
@@ -29,19 +30,14 @@ export default function Home() {
           mostly a builder problem.
         </p>
 
-        <div className="flex gap-3 flex-wrap">
+        <div className="flex items-center gap-3 flex-wrap">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
           >
             View projects <ArrowRight aria-hidden className="h-4 w-4" />
           </Link>
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 border border-border text-gray-700 px-7 py-3 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors"
-          >
-            About me
-          </Link>
+          <SocialIconButtons />
         </div>
       </div>
 

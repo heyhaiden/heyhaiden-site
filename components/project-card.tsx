@@ -17,7 +17,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       className={cn(
-        "group rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md flex flex-col",
+        "group rounded-xl overflow-hidden bg-white border border-border shadow-sm hover:shadow-md flex flex-col",
         "transition-transform duration-200 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
       )}
     >
@@ -30,6 +30,11 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             sizes={CARD_IMAGE_SIZES}
             priority={priority}
             className="object-cover"
+            style={
+              project.titleCardPosition
+                ? { objectPosition: project.titleCardPosition }
+                : undefined
+            }
           />
         </div>
       ) : (

@@ -10,6 +10,7 @@ export type Project = {
   demoUrl?: string;
   accentColor: string;
   titleCard?: string;
+  titleCardPosition?: string;
   overview: string;
   challenge: string;
   outcomes: string[];
@@ -100,11 +101,11 @@ export const projects: Project[] = [
     id: 3,
     slug: "ai-claims-agent",
     title: "ClaimsIQ: Car Insurance AI Agent",
-    titleCard: "/titlecard-claims-agent.png",
+    titleCard: "/titlecard-claims-iq.jpg",
     shortDescription: "Car insurance claims agent using Claude Vision to classify vehicle damage from photos. Agentic pipeline from photo upload to structured coverage assessment.",
     tags: ["Agentic", "InsurTech", "AI/ML"],
     category: "Agentic / B2B",
-    url: "https://v0-ai-claims-agent-prototype.vercel.app",
+    demoUrl: "https://v0-ai-claims-agent-prototype.vercel.app",
     githubUrl: "https://github.com/heyhaiden/v0-ai-claims-agent",
     accentColor: "bg-blue-100 text-blue-800",
     overview:
@@ -133,6 +134,7 @@ export const projects: Project[] = [
     url: "https://linktr.ee/blog/linktree-acquires-link-in-bio-platform-koji",
     accentColor: "bg-pink-100 text-pink-800",
     titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Article-1500x1000-QMlbwGueF0y5as8funXfNuu6QU2Zld.png",
+    titleCardPosition: "center 18%",
     overview:
       "Koji was a creator economy platform enabling content creators to build and deploy interactive mini-apps — games, tip jars, storefronts, personalized shoutouts — directly within their link-in-bio profiles. As a product team member, I worked across the mini-app template ecosystem and monetization features that drove creator revenue. Koji was acquired by Linktree in December 2023, underscoring its significance in the creator tooling space.",
     challenge:
@@ -156,6 +158,7 @@ export const projects: Project[] = [
     category: "AI / Voice",
     url: "https://ghosted-ai.vercel.app",
     accentColor: "bg-sky-100 text-sky-800",
+    titleCard: "/titlecard-voice-valet.png",
     overview:
       "Voice Valet is an AI-powered call screening and triage system for executive assistants, built on VAPI's voice AI infrastructure. Inbound calls are intercepted by a voice agent that qualifies the caller, extracts intent, and routes based on priority rules — presenting the EA with a structured summary and recommended action rather than raw call logs. Built for the VAPI Hackathon to explore voice-first agentic workflows.",
     challenge:
@@ -228,10 +231,10 @@ export const projects: Project[] = [
     shortDescription: "Conversational AI helping luxury watch collectors decide whether insurance makes financial sense. AI SDK + Vercel AI Gateway + Neon.",
     tags: ["Agentic", "InsurTech", "AI/ML"],
     category: "Agentic / B2B",
-    url: "https://nextjs-ai-chatbot-phi-fawn-50.vercel.app/",
+    demoUrl: "https://nextjs-ai-chatbot-phi-fawn-50.vercel.app/",
     githubUrl: "https://github.com/heyhaiden/watch-guard-agent",
     accentColor: "bg-amber-100 text-amber-800",
-    titleCard: "https://raw.githubusercontent.com/heyhaiden/watch-guard-agent/main/public/images/demo-thumbnail.png",
+    titleCard: "/titlecard-watchguard-advisor.png",
     overview:
       "WatchGuard Advisor is a conversational AI that replaces vague insurance advice with a structured, data-driven recommendation. Through a 4–5 question conversational flow — watch value, financial picture, quoted premium, usage patterns — the advisor produces a clear verdict: insure, don't insure, or optional. Built on the Vercel AI SDK with xAI (Grok) via Vercel AI Gateway, Neon Postgres for conversation persistence, and Auth.js for user management.",
     challenge:

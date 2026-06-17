@@ -53,6 +53,11 @@ export default async function ProjectPage({
               sizes="(max-width: 768px) 100vw, 768px"
               priority
               className="object-cover"
+              style={
+                project.titleCardPosition
+                  ? { objectPosition: project.titleCardPosition }
+                  : undefined
+              }
             />
           </div>
         )}
