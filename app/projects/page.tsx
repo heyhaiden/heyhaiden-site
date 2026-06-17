@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
@@ -15,7 +16,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="container max-w-6xl mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-4 text-gray-900">Projects</h1>
+      <h1 className="text-4xl font-bold mb-4">Projects</h1>
       <p className="text-gray-600 mb-10">
         A collection of AI products, agentic systems, and hardware builds.
       </p>
@@ -27,7 +28,7 @@ export default function ProjectsPage() {
           className={cn(
             "px-3 py-1 rounded-full text-xs font-medium border transition-colors cursor-pointer",
             activeTag === null
-              ? "bg-[hsl(var(--primary))] text-white border-[hsl(var(--primary))]"
+              ? "bg-primary text-white border-primary"
               : "border-[hsl(var(--border))] text-gray-600 hover:border-gray-400"
           )}
         >
@@ -40,7 +41,7 @@ export default function ProjectsPage() {
             className={cn(
               "px-3 py-1 rounded-full text-xs font-medium border transition-colors cursor-pointer",
               activeTag === tag
-                ? "bg-[hsl(var(--primary))] text-white border-[hsl(var(--primary))]"
+                ? "bg-primary text-white border-primary"
                 : "border-[hsl(var(--border))] text-gray-600 hover:border-gray-400"
             )}
           >
@@ -55,37 +56,48 @@ export default function ProjectsPage() {
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
-            className="group rounded-lg border border-[hsl(var(--border))] bg-white hover:-translate-y-1 transition-transform duration-200 overflow-hidden flex flex-col"
+            className="group rounded-lg overflow-hidden border bg-white hover:-translate-y-1 transition-transform duration-200"
           >
-            {/* Color accent header */}
-            <div className={`h-2 w-full ${project.accentColor.split(" ")[0]}`} />
-
-            <div className="p-5 flex flex-col flex-1">
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-3">
-                {project.tags.slice(0, 2).map((tag) => (
-                  <span
-                    key={tag}
-                    className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${project.accentColor}`}
-                  >
-                    {tag}
-                  </span>
-                ))}
+            {/* Hero image or accent fallback */}
+            {project.titleCard ? (
+              <div className="relative h-48">
+                <Image
+                  src={project.titleCard}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
+            ) : (
+              <div
+                className={`h-48 flex items-center justify-center ${project.accentColor.split(" ")[0]}`}
+              >
+                <span className="text-xs font-medium uppercase tracking-wider opacity-40">
+                  {project.category}
+                </span>
+              </div>
+            )}
 
-              {/* Title */}
-              <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-[hsl(var(--primary))] transition-colors leading-snug">
+            {/* Card content */}
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
-
-              {/* Description */}
-              <p className="text-sm text-gray-500 leading-relaxed flex-1 line-clamp-3">
+              <p className="text-gray-600 mb-4 line-clamp-2">
                 {project.shortDescription}
               </p>
-
-              {/* Arrow */}
-              <div className="mt-4 flex items-center justify-end">
-                <ArrowRight className="h-4 w-4 text-gray-300 group-hover:text-[hsl(var(--primary))] transition-colors" />
+              <div className="flex items-center justify-between">
+                <div className="flex gap-2">
+                  {project.tags.slice(0, 2).map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-primary transition-colors" />
               </div>
             </div>
           </Link>

@@ -9,6 +9,7 @@ export type Project = {
   githubUrl?: string;
   demoUrl?: string;
   accentColor: string;
+  titleCard?: string;
   overview: string;
   challenge: string;
   outcomes: string[];
@@ -26,6 +27,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/heyhaiden/synthia-dementia-voice-ai",
     demoUrl: "https://www.loom.com/share/b0935f9d8f7b40518a36d53fe47cc6b8",
     accentColor: "bg-violet-100 text-violet-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/synthia-dementia-voice-ai/main/public/lovable-uploads/synthia_hero_screenshot.png",
     overview:
       "Synthia is a real-time voice AI healthcare assistant purpose-built for dementia care support. The system chains OpenAI Whisper for speech recognition, GPT-4o for contextual understanding, and ElevenLabs for natural voice synthesis into a seamless conversation pipeline. Healthcare-specific prompt engineering ensures responses are empathetic, clear, and clinically appropriate — avoiding the ambiguity that can distress dementia patients.",
     challenge:
@@ -125,6 +127,7 @@ export const projects: Project[] = [
     category: "Developer Tools",
     githubUrl: "https://github.com/heyhaiden/mcp-ag-grid",
     accentColor: "bg-orange-100 text-orange-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/mcp-ag-grid/main/public/assets/mcp-ag-grid-min.png",
     overview:
       "An open-source Model Context Protocol (MCP) server that bridges Claude Desktop and AG Grid through headless browser automation. Users can create data grids, run natural-language queries, apply filters and sorts, generate statistical summaries, and export to CSV or Excel — all from within a Claude conversation. Supports multi-grid sessions and exposes grid state through MCP resources.",
     challenge:
@@ -150,6 +153,7 @@ export const projects: Project[] = [
     category: "Agentic / B2B",
     githubUrl: "https://github.com/heyhaiden/watch-guard-agent",
     accentColor: "bg-amber-100 text-amber-800",
+    titleCard: "https://raw.githubusercontent.com/heyhaiden/watch-guard-agent/main/public/images/demo-thumbnail.png",
     overview:
       "WatchGuard Advisor is a conversational AI that replaces vague insurance advice with a structured, data-driven recommendation. Through a 4–5 question conversational flow — watch value, financial picture, quoted premium, usage patterns — the advisor produces a clear verdict: insure, don't insure, or optional. Built on the Vercel AI SDK with xAI (Grok) via Vercel AI Gateway, Neon Postgres for conversation persistence, and Auth.js for user management.",
     challenge:
@@ -175,6 +179,7 @@ export const projects: Project[] = [
     category: "Product",
     url: "https://www.embodiedlabs.com",
     accentColor: "bg-teal-100 text-teal-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/embodied-labs-blur.jpg-lhWODtqb8dQJxSatWFOsqp5CAiSf8n.jpeg",
     overview:
       "Embodied Labs is a B2B SaaS platform providing immersive training experiences for healthcare professionals — improving clinical empathy and skills by putting learners inside the perspective of patients experiencing aging, vision loss, and cognitive decline. As a core product contributor, I led the development of key training modules and platform features that expanded the catalog and drove adoption across hospital systems and care networks.",
     challenge:
@@ -198,6 +203,7 @@ export const projects: Project[] = [
     category: "Product",
     url: "https://techcrunch.com/2023/12/14/linktree-acquires-koji-in-its-second-investment-of-the-year/",
     accentColor: "bg-pink-100 text-pink-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Article-1500x1000-QMlbwGueF0y5as8funXfNuu6QU2Zld.png",
     overview:
       "Koji was a creator economy platform enabling content creators to build and deploy interactive mini-apps — games, tip jars, storefronts, personalized shoutouts — directly within their link-in-bio profiles. As a product team member, I worked across the mini-app template ecosystem and monetization features that drove creator revenue. Koji was acquired by Linktree in December 2023, underscoring its significance in the creator tooling space.",
     challenge:
@@ -221,6 +227,7 @@ export const projects: Project[] = [
     category: "IoT / Hardware",
     githubUrl: "https://github.com/heyhaiden/firewall-scout-iot-system",
     accentColor: "bg-red-100 text-red-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_125978574_mediaitem125978572.jpg-KHoVrlfpx5V2onNip7pD0xNrqOvuXw.jpeg",
     overview:
       "Firewall Scout is an IoT-based system creating a 'digital defensible space' around land assets in wildfire-prone regions. A distributed sensor network monitors microclimate variables — temperature, humidity, wind, air quality — and feeds a threat detection model that alerts land managers before conditions reach critical thresholds. Designed for low-cost, long-term outdoor deployment, the system integrates with existing emergency response infrastructure.",
     challenge:
@@ -244,6 +251,7 @@ export const projects: Project[] = [
     category: "IoT / Hardware",
     url: "https://medium.com/noctvrnal/the-process-behind-dreamfreq-90af7ae45725",
     accentColor: "bg-purple-100 text-purple-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DreamFREQ%20(1).jpg-OTgbT4axZOMYlJJiBUCvrUbTuVVcco.jpeg",
     overview:
       "DreamFREQ translates live EEG brainwave data into real-time auditory soundscapes, creating a direct feedback loop between mental state and generated music. Developed during a residency with On Air Fest, the system uses a Muse EEG headband to capture delta wave activity, processes it through Mind Monitor, and synthesizes sound in TouchDesigner based on brainwave frequency and amplitude. Premiered live at the Wythe Hotel in Brooklyn, producing a 15-minute composition representing the waking-sleeping-dreaming cycle.",
     challenge:
@@ -268,6 +276,7 @@ export const projects: Project[] = [
     category: "IoT / Hardware",
     githubUrl: "https://github.com/heyhaiden/smart-helmet-iot",
     accentColor: "bg-lime-100 text-lime-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/smartHelmet_cover.jpg-Wm5pDhzGkIuGiBmR4zTZDO1MlDQu0i.jpeg",
     overview:
       "The Smart Helmet integrates a TensorFlow Lite voice recognition model into an ESP32-based wearable to convert spoken commands — 'left,' 'right,' 'stop' — into LED turn signals in real time. The system addresses the danger of hand-signal communication in high-traffic environments, providing cyclists with a hands-free, voice-activated alternative that keeps both hands on the handlebars.",
     challenge:
