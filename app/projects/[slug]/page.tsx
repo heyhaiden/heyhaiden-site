@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, GitBranch } from "lucide-react";
+import { ProjectTitleCardImage } from "@/components/project-title-card-image";
 import { projects, getProject } from "@/lib/projects";
 
 export async function generateStaticParams() {
@@ -45,21 +45,12 @@ export default async function ProjectPage({
 
       <div className="container max-w-3xl mx-auto px-4 pb-16">
         {project.titleCard && (
-          <div className="relative aspect-video w-full rounded-xl overflow-hidden mb-10 shadow-sm">
-            <Image
-              src={project.titleCard}
-              alt={project.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 768px"
-              priority
-              className="object-cover"
-              style={
-                project.titleCardPosition
-                  ? { objectPosition: project.titleCardPosition }
-                  : undefined
-              }
-            />
-          </div>
+          <ProjectTitleCardImage
+            project={project}
+            sizes="(max-width: 768px) 100vw, 768px"
+            priority
+            className="w-full rounded-xl mb-10 shadow-sm"
+          />
         )}
 
         <div className="mb-10">

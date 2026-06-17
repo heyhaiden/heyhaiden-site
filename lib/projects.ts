@@ -11,6 +11,7 @@ export type Project = {
   accentColor: string;
   titleCard?: string;
   titleCardPosition?: string;
+  titleCardScale?: number;
   overview: string;
   challenge: string;
   outcomes: string[];
@@ -102,6 +103,7 @@ export const projects: Project[] = [
     slug: "ai-claims-agent",
     title: "ClaimsIQ: Car Insurance AI Agent",
     titleCard: "/titlecard-claims-iq.jpg",
+    titleCardScale: 1.08,
     shortDescription: "Car insurance claims agent using Claude Vision to classify vehicle damage from photos. Agentic pipeline from photo upload to structured coverage assessment.",
     tags: ["Agentic", "InsurTech", "AI/ML"],
     category: "Agentic / B2B",

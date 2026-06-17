@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
+import { ProjectTitleCardImage } from "@/components/project-title-card-image";
 import { cn } from "@/lib/utils";
 
 const CARD_IMAGE_SIZES =
@@ -22,21 +22,12 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
       )}
     >
       {project.titleCard ? (
-        <div className="relative aspect-video shrink-0">
-          <Image
-            src={project.titleCard}
-            alt={project.title}
-            fill
-            sizes={CARD_IMAGE_SIZES}
-            priority={priority}
-            className="object-cover"
-            style={
-              project.titleCardPosition
-                ? { objectPosition: project.titleCardPosition }
-                : undefined
-            }
-          />
-        </div>
+        <ProjectTitleCardImage
+          project={project}
+          sizes={CARD_IMAGE_SIZES}
+          priority={priority}
+          className="shrink-0"
+        />
       ) : (
         <div
           className={`aspect-video shrink-0 flex items-center justify-center ${project.accentColor.split(" ")[0]}`}
