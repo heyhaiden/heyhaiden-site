@@ -20,14 +20,13 @@ export default function Home() {
         </h1>
 
         <p className="text-xl text-gray-800 leading-relaxed mb-4 max-w-2xl">
-          I build AI products from first principles — voice agents, agentic workflows,
-          MCP tooling, and healthcare platforms.
+          I build at the edge of AI products: voice agents, agentic workflows,
+          B2B platforms, and connected devices.
         </p>
 
         <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-2xl">
-          Former founder. 7+ years in B2B product. I moved from managing products to building them
-          when I realized the gap between what&apos;s possible with AI and what actually gets shipped is
-          mostly a builder problem.
+          I&apos;m drawn to the early stage of emerging technology, where the constraints are unclear,
+          the demos move fast, and the real work is turning possibility into dependable software.
         </p>
 
         <div className="flex items-center gap-3 flex-wrap">
