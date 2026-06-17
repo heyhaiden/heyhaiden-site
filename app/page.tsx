@@ -1,104 +1,122 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CircleUser } from "lucide-react";
 import { projects } from "@/lib/projects";
 
 const featured = projects.slice(0, 3);
 
 export default function Home() {
   return (
-    <div className="container max-w-4xl mx-auto px-4 py-16">
-      {/* Hero */}
-      <section className="mb-20">
-        <p className="text-sm font-medium text-[hsl(var(--primary))] mb-4 tracking-wide uppercase">
-          AI Product Engineer · Builder PM
-        </p>
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.15]">
-          Haiden McGill
-        </h1>
-        <p className="text-xl text-gray-600 mb-4 max-w-2xl leading-relaxed">
-          I build AI products from first principles — voice agents, agentic
-          workflows, MCP tooling, and healthcare platforms.
-        </p>
-        <p className="text-gray-500 max-w-2xl leading-relaxed mb-8">
-          Former founder. 7+ years in B2B product. I moved from managing
-          products to building them when I realized the gap between what&apos;s
-          possible with AI and what actually gets shipped is mostly a builder
-          problem.
-        </p>
-        <div className="flex gap-4">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 bg-[hsl(var(--primary))] text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-          >
-            View projects
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 border border-[hsl(var(--border))] text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
-          >
-            About me
-          </Link>
+    <div className="min-h-screen flex flex-col">
+      {/* Hero — centered with profile photo, matching old layout */}
+      <div className="container mx-auto px-4 flex items-start justify-center pt-40">
+        <div className="max-w-3xl w-full mx-auto text-center">
+          <div className="space-y-6">
+            {/* Profile photo */}
+            <div className="mx-auto rounded-full shadow-md inline-block w-32 h-32 overflow-hidden border border-black">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-13%20at%2015.08.35-47gF50xzhdS99oZdVM8POFiZukT9X2.png"
+                alt="Haiden McGill"
+                width={150}
+                height={150}
+                className="object-cover object-center"
+                style={{ width: "100%", height: "100%", objectPosition: "50% 30%" }}
+                priority
+              />
+            </div>
+
+            {/* Name + title */}
+            <div className="mb-6">
+              <h1 className="text-4xl font-bold mb-2">Haiden McGill</h1>
+              <h2 className="text-xl text-gray-600">AI Product Engineer · Builder PM</h2>
+            </div>
+
+            {/* Bio */}
+            <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              I build AI products from first principles — voice agents, agentic workflows, MCP tooling, and healthcare platforms. Former founder with 7+ years in B2B product. I moved from managing products to building them when I realized the gap between what&apos;s possible with AI and what actually gets shipped is mostly a builder problem.
+            </p>
+
+            {/* CTAs */}
+            <div className="pt-4 flex justify-center gap-4">
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 transition-colors"
+              >
+                View Projects <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 transition-colors"
+              >
+                Learn More <CircleUser className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Divider */}
-      <div className="border-t border-[hsl(var(--border))] mb-12" />
-
-      {/* Featured work */}
-      <section>
+      {/* Featured projects */}
+      <div className="container max-w-6xl mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-lg font-semibold text-gray-900">Featured work</h2>
+          <h2 className="text-2xl font-bold">Featured Work</h2>
           <Link
             href="/projects"
-            className="text-sm text-[hsl(var(--primary))] hover:underline flex items-center gap-1"
+            className="text-primary text-sm flex items-center gap-1 hover:underline"
           >
-            All projects
-            <ArrowRight className="h-3.5 w-3.5" />
+            All projects <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {featured.map((project) => (
             <Link
-              key={project.slug}
+              key={project.id}
               href={`/projects/${project.slug}`}
-              className="group rounded-lg border border-[hsl(var(--border))] bg-white hover:-translate-y-1 transition-transform duration-200 overflow-hidden"
+              className="group rounded-lg overflow-hidden border bg-white hover:-translate-y-1 transition-transform duration-200"
             >
-              {/* Color header */}
-              <div className={`h-2 ${project.accentColor.split(" ")[0]}`} />
-              <div className="p-5">
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {project.tags.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${project.accentColor}`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              {/* Hero image or accent fallback */}
+              {project.titleCard ? (
+                <div className="relative h-48">
+                  <Image
+                    src={project.titleCard}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-2 group-hover:text-[hsl(var(--primary))] transition-colors leading-snug">
+              ) : (
+                <div
+                  className={`h-48 flex items-center justify-center ${project.accentColor.split(" ")[0]}`}
+                >
+                  <span className="text-xs font-medium uppercase tracking-wider opacity-40">
+                    {project.category}
+                  </span>
+                </div>
+              )}
+
+              {/* Card content */}
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed line-clamp-3">
-                  {project.shortDescription}
-                </p>
+                <p className="text-gray-600 mb-4">{project.shortDescription}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {project.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-primary transition-colors" />
+                </div>
               </div>
             </Link>
           ))}
         </div>
-      </section>
-
-      {/* Stack */}
-      <section className="mt-16 pt-12 border-t border-[hsl(var(--border))]">
-        <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-          Stack
-        </h2>
-        <p className="text-sm text-gray-500 leading-relaxed">
-          Next.js · TypeScript · Claude API · VAPI · Vercel AI SDK · MCP ·
-          OpenAI Whisper · ElevenLabs · ESP32 · Python
-        </p>
-      </section>
+      </div>
     </div>
   );
 }

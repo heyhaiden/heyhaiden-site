@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, GitBranch } from "lucide-react";
@@ -40,6 +41,18 @@ export default async function ProjectPage({
         <ArrowLeft className="h-3.5 w-3.5" />
         All projects
       </Link>
+
+      {/* Hero image */}
+      {project.titleCard && (
+        <div className="aspect-video relative mb-10 rounded-lg overflow-hidden">
+          <Image
+            src={project.titleCard}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
 
       {/* Header */}
       <div className="mb-10">

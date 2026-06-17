@@ -9,6 +9,7 @@ export type Project = {
   githubUrl?: string;
   demoUrl?: string;
   accentColor: string;
+  titleCard?: string;
   overview: string;
   challenge: string;
   outcomes: string[];
@@ -175,6 +176,7 @@ export const projects: Project[] = [
     category: "Product",
     url: "https://www.embodiedlabs.com",
     accentColor: "bg-teal-100 text-teal-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/embodied-labs-blur.jpg-lhWODtqb8dQJxSatWFOsqp5CAiSf8n.jpeg",
     overview:
       "Embodied Labs is a B2B SaaS platform providing immersive training experiences for healthcare professionals — improving clinical empathy and skills by putting learners inside the perspective of patients experiencing aging, vision loss, and cognitive decline. As a core product contributor, I led the development of key training modules and platform features that expanded the catalog and drove adoption across hospital systems and care networks.",
     challenge:
@@ -198,6 +200,7 @@ export const projects: Project[] = [
     category: "Product",
     url: "https://techcrunch.com/2023/12/14/linktree-acquires-koji-in-its-second-investment-of-the-year/",
     accentColor: "bg-pink-100 text-pink-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Article-1500x1000-QMlbwGueF0y5as8funXfNuu6QU2Zld.png",
     overview:
       "Koji was a creator economy platform enabling content creators to build and deploy interactive mini-apps — games, tip jars, storefronts, personalized shoutouts — directly within their link-in-bio profiles. As a product team member, I worked across the mini-app template ecosystem and monetization features that drove creator revenue. Koji was acquired by Linktree in December 2023, underscoring its significance in the creator tooling space.",
     challenge:
@@ -221,6 +224,7 @@ export const projects: Project[] = [
     category: "IoT / Hardware",
     githubUrl: "https://github.com/heyhaiden/firewall-scout-iot-system",
     accentColor: "bg-red-100 text-red-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_125978574_mediaitem125978572.jpg-KHoVrlfpx5V2onNip7pD0xNrqOvuXw.jpeg",
     overview:
       "Firewall Scout is an IoT-based system creating a 'digital defensible space' around land assets in wildfire-prone regions. A distributed sensor network monitors microclimate variables — temperature, humidity, wind, air quality — and feeds a threat detection model that alerts land managers before conditions reach critical thresholds. Designed for low-cost, long-term outdoor deployment, the system integrates with existing emergency response infrastructure.",
     challenge:
@@ -244,6 +248,7 @@ export const projects: Project[] = [
     category: "IoT / Hardware",
     url: "https://medium.com/noctvrnal/the-process-behind-dreamfreq-90af7ae45725",
     accentColor: "bg-purple-100 text-purple-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DreamFREQ%20(1).jpg-OTgbT4axZOMYlJJiBUCvrUbTuVVcco.jpeg",
     overview:
       "DreamFREQ translates live EEG brainwave data into real-time auditory soundscapes, creating a direct feedback loop between mental state and generated music. Developed during a residency with On Air Fest, the system uses a Muse EEG headband to capture delta wave activity, processes it through Mind Monitor, and synthesizes sound in TouchDesigner based on brainwave frequency and amplitude. Premiered live at the Wythe Hotel in Brooklyn, producing a 15-minute composition representing the waking-sleeping-dreaming cycle.",
     challenge:
@@ -268,6 +273,7 @@ export const projects: Project[] = [
     category: "IoT / Hardware",
     githubUrl: "https://github.com/heyhaiden/smart-helmet-iot",
     accentColor: "bg-lime-100 text-lime-800",
+    titleCard: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/smartHelmet_cover.jpg-Wm5pDhzGkIuGiBmR4zTZDO1MlDQu0i.jpeg",
     overview:
       "The Smart Helmet integrates a TensorFlow Lite voice recognition model into an ESP32-based wearable to convert spoken commands — 'left,' 'right,' 'stop' — into LED turn signals in real time. The system addresses the danger of hand-signal communication in high-traffic environments, providing cyclists with a hands-free, voice-activated alternative that keeps both hands on the handlebars.",
     challenge:
