@@ -106,11 +106,11 @@ export default function AboutPage() {
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               Hi, I&apos;m Haiden. I&apos;m a product leader, audio engineer, and former founder
-              who works where emerging technology has to become useful.
+              who works at the intersection of emerging tech and product development.
             </p>
             <p>
-              I&apos;ve spent 7+ years across health tech, spatial computing, enterprise SaaS,
-              and creator tools, usually at the 0-to-1 stage where the path is still being made.
+              I&apos;ve spent 7+ years building products across health tech, spatial computing, enterprise SaaS,
+              and internal tools, usually at the 0-to-1 stage where the path is still being made.
             </p>
             <p>
               My mantra is &quot;always be building&quot;: prototype quickly, challenge assumptions,
