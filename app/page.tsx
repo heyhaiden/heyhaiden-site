@@ -1,127 +1,69 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CircleUser } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { ProjectCard } from "@/components/project-card";
+import { SignalFieldLazy } from "@/components/signal-field-lazy";
+import { SocialIconButtons } from "@/components/social-icon-buttons";
+import { ButtonLink, SectionHeading } from "@/components/ui";
 import { projects } from "@/lib/projects";
 
-const featured = projects.slice(0, 3);
+const featuredSlugs = ["embodied-labs", "ai-claims-agent", "mcp-ag-grid"];
+const featured = featuredSlugs.map((slug) => projects.find((p) => p.slug === slug)!);
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Hero — centered with profile photo, matching old layout */}
-      <div className="container mx-auto px-4 flex items-start justify-center pt-40">
-        <div className="max-w-3xl w-full mx-auto text-center">
-          <div className="space-y-6">
-            {/* Profile photo */}
-            <div className="mx-auto rounded-full shadow-md inline-block w-32 h-32 overflow-hidden border border-black">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-13%20at%2015.08.35-47gF50xzhdS99oZdVM8POFiZukT9X2.png"
-                alt="Haiden McGill"
-                width={150}
-                height={150}
-                className="object-cover object-center"
-                style={{ width: "100%", height: "100%", objectPosition: "50% 30%" }}
-                priority
-              />
-            </div>
-
-            {/* Name + title */}
-            <div className="mb-6">
-              <h1 className="text-4xl font-bold mb-2">Haiden McGill</h1>
-              <h2 className="text-xl text-gray-500">Senior PM · AI Builder · Former Founder</h2>
-            </div>
-
-            {/* Current role badge */}
-            <div className="flex justify-center mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
-                Currently at Optimove · Enterprise AI
-              </span>
-            </div>
-
-            {/* Bio */}
-            <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">
-              7+ years in B2B product. I build AI products end-to-end — voice agents, agentic workflows, MCP tooling. MSc Computer Science (UCL, Distinction). Former founder.
+    <div className="flex flex-col">
+      <div className="min-h-[calc(100svh-8rem)] flex flex-col justify-center container max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 lg:gap-12 items-center">
+          <div>
+            <p className="text-primary text-xs font-semibold uppercase tracking-widest mb-5">
+              Product Leader · Applied AI
             </p>
 
-            {/* CTAs */}
-            <div className="pt-4 flex justify-center gap-4">
-              <Link
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-7 leading-tight">
+              Haiden McGill
+            </h1>
+
+            <p className="text-xl text-gray-800 leading-relaxed mb-4 max-w-2xl">
+              Product leader who builds — I pull new tech apart to understand how it
+              works, then ship something real with it.
+            </p>
+
+            <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-2xl">
+              7+ years of 0-to-1 product in health tech and enterprise. Now focused on
+              applied AI: agentic systems, voice, and embedded hardware that hold up
+              outside the demo.
+            </p>
+
+            <div className="flex items-center gap-3 flex-wrap">
+              <ButtonLink
                 href="/projects"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 transition-colors"
+                className="px-7 py-3"
               >
-                View Projects <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 transition-colors"
-              >
-                Learn More <CircleUser className="ml-1 h-4 w-4" />
-              </Link>
+                View projects <ArrowRight aria-hidden className="h-4 w-4" />
+              </ButtonLink>
+              <SocialIconButtons />
             </div>
           </div>
+
+          <SignalFieldLazy className="relative h-[320px] sm:h-[400px] lg:h-[540px] w-full" />
         </div>
       </div>
 
-      {/* Featured projects */}
-      <div className="container max-w-6xl mx-auto px-4 py-16">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold">Featured Work</h2>
+      <div className="container max-w-6xl mx-auto px-4 pb-20">
+        <div className="flex items-end justify-between mb-6">
+          <SectionHeading className="text-sm">
+            Featured Work
+          </SectionHeading>
           <Link
             href="/projects"
             className="text-primary text-sm flex items-center gap-1 hover:underline"
           >
-            All projects <ArrowRight className="h-4 w-4" />
+            All projects <ArrowRight aria-hidden className="h-4 w-4" />
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featured.map((project) => (
-            <Link
-              key={project.id}
-              href={`/projects/${project.slug}`}
-              className="group rounded-lg overflow-hidden border bg-white hover:-translate-y-1 transition-transform duration-200"
-            >
-              {/* Hero image or accent fallback */}
-              {project.titleCard ? (
-                <div className="relative h-48">
-                  <Image
-                    src={project.titleCard}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ) : (
-                <div
-                  className={`h-48 flex items-center justify-center ${project.accentColor.split(" ")[0]}`}
-                >
-                  <span className="text-xs font-medium uppercase tracking-wider opacity-40">
-                    {project.category}
-                  </span>
-                </div>
-              )}
-
-              {/* Card content */}
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{project.shortDescription}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-2">
-                    {project.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-primary transition-colors" />
-                </div>
-              </div>
-            </Link>
+          {featured.map((project, i) => (
+            <ProjectCard key={project.id} project={project} priority={i < 3} />
           ))}
         </div>
       </div>
