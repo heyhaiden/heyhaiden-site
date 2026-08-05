@@ -45,7 +45,7 @@ export default function Home() {
             </div>
           </div>
 
-          <SignalFieldLazy className="relative h-[320px] sm:h-[400px] lg:h-[540px] w-full" />
+          <SignalFieldLazy className="relative hidden lg:block h-[540px] w-full" />
         </div>
       </div>
 
